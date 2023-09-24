@@ -14,10 +14,10 @@ public class Player {
      * @param y y-coordinate of player (default 0.0)
      * @param movementSpeed movement speed of player (default 5.0)
      */
-    private Player(int hor, int vert, int speed){
-        this.x = hor;
-        this.y = vert;
-        this.movementSpeed = speed;
+    private Player(){
+        this.x = 0;
+        this.y = 0;
+        this.movementSpeed = 5;
     };
 
     /*
@@ -30,7 +30,7 @@ public class Player {
         if(player == null){
             synchronized (Player.class){
                 if(player == null){
-                    player = new Player(0,0,5);
+                    player = new Player();
                 }
             }
         }
