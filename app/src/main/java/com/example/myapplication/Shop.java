@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import java.util.ArrayList;
 
-import kotlin.jvm.Synchronized;
 
 public class Shop {
     private ArrayList<Weapon> weapon_list;
