@@ -2,22 +2,37 @@ package com.example.myapplication;
 
 import java.util.ArrayList;
 
+import kotlin.jvm.Synchronized;
+
 public class Shop {
     private ArrayList<Weapon> weapon_list;
+    private volatile static Shop shop;
 
     // TODO: Instance should be named "shop"
+
 
     /*
      * TODO: Constructor for Shop
      * Initialize weapon_list to an empty ArrayList
      */
-
+    private Shop(){
+        weapon_list = new ArrayList<Weapon>();
+    }
     /*
      * TODO: Returns the instance of the player
      * Name: getInstance()
      * @return the instance of the shop
      */
-
+    public static Shop getInstance(){
+        if(shop == null){
+            synchronized (Shop.class){
+                if(shop == null){
+                    shop = new Shop();
+                }
+            }
+        }
+        return shop;
+    }
     public void add_weapon(String name, int damage) {
 
         Weapon weapon = new Weapon(name, damage);
